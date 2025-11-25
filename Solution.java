@@ -69,7 +69,7 @@ public class Solution {
                 //System.out.println("This is our compaint threshold " + complaining);
             }
         if(isAtLegalRisk(clientDelays, shortestPathLengths)){
-            client clientOfInterest = findClosestComplainer();
+            Client clientOfInterest = findClosestComplainer();
             i = clientOfInterest.id;
             improve(sol, clientOfInterest);
             bandwidthTracker++;
@@ -83,8 +83,8 @@ public class Solution {
         return sol;
     }
 
-    client findClosestComplainer(HashMap<Integer, Integer> complainingClients, HashMap<Integer, Integer> cDelays, HashMap<Integer, Integer> shortestPathLengths){
-        client result;
+    Client findClosestComplainer(HashMap<Integer, Integer> complainingClients, HashMap<Integer, Integer> cDelays, HashMap<Integer, Integer> shortestPathLengths){
+        Client result;
         int gap=-1;
         for(client : complainingClients){
         int complaining = (int) (client.beta * shortestPathLengths.get(client.id));
